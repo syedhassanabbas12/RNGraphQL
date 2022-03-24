@@ -1,0 +1,18 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ],
+  "scripts": {
+    "start": "concurrently \"yarn workspace server start\" \"yarn workspace web start\"",
+    "rebuild": "rm -rf node_modules yarn.lock packages/web/node_modules packages/mobile/node_modules && yarn install"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "packageManager": "yarn@3.2.0"
+}
